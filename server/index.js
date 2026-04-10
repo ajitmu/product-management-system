@@ -10,10 +10,14 @@ import orderRoutes from './routes/order.js';
 import dashboardRoutes from './routes/dashboard.js';
 import dotenv from "dotenv";
 import path from "path";
+
 dotenv.config();
+
 const app = express();
+
 app.use(cors());
 app.use(express.json());
+
 app.use('/api/auth', authRoutes);
 app.use('/api/category', categoryRoutes);
 app.use('/api/supplier', supplierRoutes);
@@ -21,12 +25,16 @@ app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/dashboard', dashboardRoutes);
+
 const __dirname = path.resolve();
-const frontendPath = path.join(__dirname, "frontend/dist");
+const frontendPath = path.join(__dirname, "../frontend/dist");
+
 app.use(express.static(frontendPath));
+
 app.use((req, res) => {
   res.sendFile(path.join(frontendPath, "index.html"));
 });
+
 app.listen(process.env.PORT, () => {
   connectDB();
   console.log(`server is running on port ${process.env.PORT}`);
