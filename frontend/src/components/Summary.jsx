@@ -17,7 +17,7 @@ const Summary = () => {
   const fetchDashboardData = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('http://localhost:3000/api/dashboard', {
+      const response = await axios.get('https://product-management-system-wrvg.onrender.com/api/dashboard', {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('pos-token')}`
         }

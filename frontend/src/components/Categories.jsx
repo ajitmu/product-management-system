@@ -11,7 +11,7 @@ const Categories = () => {
     const fetchCategories = async () => {
         setLoading(true);
         try {
-            const response = await axios.get('http://localhost:3000/api/category', {
+            const response = await axios.get('https://product-management-system-wrvg.onrender.com/api/category', {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('pos-token')}`
                 },
@@ -32,7 +32,7 @@ const Categories = () => {
     const handleSumbit = async (e) => {
         e.preventDefault();
         if (editCategory) {
-            const response = await axios.put(`http://localhost:3000/api/category/${editCategory}`, {
+            const response = await axios.put(`https://product-management-system-wrvg.onrender.com/api/category/${editCategory}`, {
                 categoryName,
                 categoryDescription
             }, {
@@ -56,7 +56,7 @@ const Categories = () => {
             }
 
         } else {
-            const response = await axios.post('http://localhost:3000/api/category/add', {
+            const response = await axios.post('https://product-management-system-wrvg.onrender.com/api/category/add', {
                 categoryName,
                 categoryDescription
             }, {
@@ -80,7 +80,7 @@ const Categories = () => {
         const confirmDelete = window.confirm('Are you sure you want to delete this category?');
         if (confirmDelete) {
             try {
-               const response = await axios.delete(`http://localhost:3000/api/category/${id}`, {           
+               const response = await axios.delete(`https://product-management-system-wrvg.onrender.com/api/category/${id}`, {           
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('pos-token')}`
                     },

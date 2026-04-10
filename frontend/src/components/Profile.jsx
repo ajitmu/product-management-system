@@ -10,7 +10,7 @@ const Profile = () => {
     const [edit, setEdit] = useState(false);
     const fetchUser = async () => {
         try {
-            const response = await axios.get("http://localhost:3000/api/users/profile", {
+            const response = await axios.get("https://product-management-system-wrvg.onrender.com/api/users/profile", {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("pos-token")}`,
                 },
@@ -39,7 +39,7 @@ const Profile = () => {
 const handleSubmit = async (e) => {
   e.preventDefault();
   try {
-    const response = await axios.put("http://localhost:3000/api/users/profile", user, {
+    const response = await axios.put("https://product-management-system-wrvg.onrender.com/api/users/profile", user, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("pos-token")}`,
       },

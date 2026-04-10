@@ -24,7 +24,7 @@ const Suppliers = () => {
      const fetchSuppliers = async () => {
         setLoading(true);
         try {
-            const response = await axios.get('http://localhost:3000/api/supplier', {
+            const response = await axios.get('https://product-management-system-wrvg.onrender.com/api/supplier', {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('pos-token')}`
                 },
@@ -70,7 +70,7 @@ const Suppliers = () => {
         e.preventDefault();
         if (editsupplier) {
             try {
-            const response = await axios.put(`http://localhost:3000/api/supplier/${editsupplier}`, 
+            const response = await axios.put(`https://product-management-system-wrvg.onrender.com/api/supplier/${editsupplier}`, 
                 formData,
              {
                 headers: {
@@ -99,7 +99,7 @@ const Suppliers = () => {
         }
         else {
         try {
-            const response = await axios.post('http://localhost:3000/api/supplier/add', 
+            const response = await axios.post('https://product-management-system-wrvg.onrender.com/api/supplier/add', 
                 formData,
              {
                 headers: {
@@ -130,7 +130,7 @@ const Suppliers = () => {
         const confirmDelete = window.confirm('Are you sure you want to delete this supplier?');
         if (confirmDelete) {
             try {
-               const response = await axios.delete(`http://localhost:3000/api/supplier/${id}`, {           
+               const response = await axios.delete(`https://product-management-system-wrvg.onrender.com/api/supplier/${id}`, {           
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('pos-token')}`
                     },

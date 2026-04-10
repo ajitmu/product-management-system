@@ -19,7 +19,7 @@ const Product = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/api/products', {
+      const response = await axios.get('https://product-management-system-wrvg.onrender.com/api/products', {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('pos-token')}`
         },
@@ -72,7 +72,7 @@ const Product = () => {
         const confirmDelete = window.confirm('Are you sure you want to delete this product?');
         if (confirmDelete) {
             try {
-               const response = await axios.delete(`http://localhost:3000/api/products/${id}`, {           
+               const response = await axios.delete(`https://product-management-system-wrvg.onrender.com/api/products/${id}`, {           
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('pos-token')}`
                     },
@@ -107,7 +107,7 @@ const Product = () => {
     e.preventDefault();
     if (editProduct) {
       try {
-        const resonse = await axios.put(`http://localhost:3000/api/products/${editProduct}`,
+        const resonse = await axios.put(`https://product-management-system-wrvg.onrender.com/api/products/${editProduct}`,
           formData,
           {
             headers: {
@@ -139,7 +139,7 @@ const Product = () => {
     }
 else{
    try {
-            const response = await axios.post('http://localhost:3000/api/products/add', 
+            const response = await axios.post('https://product-management-system-wrvg.onrender.com/api/products/add', 
                 formData,
              {
                 headers: {

@@ -6,7 +6,7 @@ const Orders = () => {
     const [loading, setLoading] = useState(false);
       const fetchOrders = async () => {
         try {
-          const response = await axios.get('http://localhost:3000/api/orders', {
+          const response = await axios.get('https://product-management-system-wrvg.onrender.com/api/orders', {
             headers: {
               Authorization: `Bearer ${localStorage.getItem('pos-token')}`
             },
