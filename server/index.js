@@ -22,12 +22,12 @@ app.use('/api/users', userRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 const __dirname = path.resolve();
-app.use(express.static(path.join(__dirname, "frontend/dist")));
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "frontend/dist/index.html"));
+const frontendPath = path.join(__dirname, "frontend/dist");
+app.use(express.static(frontendPath));
+app.use((req, res) => {
+  res.sendFile(path.join(frontendPath, "index.html"));
 });
-
 app.listen(process.env.PORT, () => {
-    connectDB();
-    console.log(`server is running on port http://localhost:${process.env.PORT}`);
+  connectDB();
+  console.log(`server is running on port ${process.env.PORT}`);
 });
